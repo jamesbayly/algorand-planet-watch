@@ -1,0 +1,58 @@
+specVersion: 0.0.1
+name: starter-entity
+version: 0.0.1
+runner:
+  node:
+    name: '@subql/node'
+    version: '>=1.0.0'
+  query:
+    name: '@subql/query'
+    version: '*'
+description: >-
+  This project can be used as a starting point for developing your SubQuery
+  project
+repository: 'https://github.com/subquery/subql-starter'
+schema:
+  file: ./schema.graphql
+network:
+  chainId: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3'
+  endpoint: 'wss://polkadot.api.onfinality.io/public-ws'
+  # dictionary: 'https://api.subquery.network/sq/subquery/polkadot-dictionary'
+  algorandRpc: https://testnet-algorand.api.purestake.io/idx2
+  apiKey: yGUzCVJOvj1belzAu8v7q9kGSd7F1N557rzi9OgK
+dataSources:
+  - kind: algorand/Runtime
+    startBlock: 50000
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleBlock
+          kind: algorand/BlockHandler
+        - handler: handleTransaction
+          kind: algorand/TransactionHandler
+          filter:
+            txType: pay
+            sender: "ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754" 
+            receiver: "ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754"     
+        - handler: handleTransaction
+          kind: algorand/TransactionHandler
+          filter:
+            txType: acfg
+            applicationId: 1
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+               
+      
