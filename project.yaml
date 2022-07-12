@@ -1,6 +1,6 @@
-specVersion: 0.0.1
+specVersion: 1.0.0
 name: starter-entity
-version: 0.0.1
+version: 1.0.0
 runner:
   node:
     name: '@subql/node'
@@ -15,11 +15,10 @@ repository: 'https://github.com/subquery/subql-starter'
 schema:
   file: ./schema.graphql
 network:
-  chainId: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3'
-  endpoint: 'wss://polkadot.api.onfinality.io/public-ws'
-  # dictionary: 'https://api.subquery.network/sq/subquery/polkadot-dictionary'
-  algorandRpc: https://testnet-algorand.api.purestake.io/idx2
-  apiKey: yGUzCVJOvj1belzAu8v7q9kGSd7F1N557rzi9OgK
+  chainId: 'SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI='
+  endpoint: 'https://testnet-algorand.api.purestake.io/idx2'
+  apiKey:
+    X-API-Key: yGUzCVJOvj1belzAu8v7q9kGSd7F1N557rzi9OgK
 dataSources:
   - kind: algorand/Runtime
     startBlock: 50000
