@@ -1,5 +1,5 @@
 import { StarterEntity } from "../types";
-import { AlgorandBlock, AlgorandTransaction } from "@subql/types";
+import { AlgorandBlock, AlgorandTransaction } from "@subql/types-algorand";
 
 export async function handleBlock(block: AlgorandBlock): Promise<void> {
   const newEntity = new StarterEntity(block.round.toString());
