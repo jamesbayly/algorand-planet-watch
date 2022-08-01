@@ -1,17 +1,16 @@
 specVersion: 1.0.0
-name: starter-entity
+name: algorand-subql-starter
 version: 1.0.0
 runner:
   node:
-    name: '@subql/node'
+    name: '@subql/node-algorand'
     version: '>=1.0.0'
   query:
     name: '@subql/query'
     version: '*'
 description: >-
-  This project can be used as a starting point for developing your SubQuery
-  project
-repository: 'https://github.com/subquery/subql-starter'
+  This project can be used as a starting point for developing your Algorand SubQuery project
+repository: 'https://github.com/subquery/algorand-subql-starter'
 schema:
   file: ./schema.graphql
 network:
@@ -29,27 +28,10 @@ dataSources:
           kind: algorand/TransactionHandler
           filter:
             txType: pay
-            sender: "ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754" 
-            receiver: "ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754"     
+            sender: "ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754"
+            receiver: "ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754"
         - handler: handleTransaction
           kind: algorand/TransactionHandler
           filter:
             txType: acfg
             applicationId: 1
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-               
-      

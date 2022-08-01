@@ -1,17 +1,10 @@
-type StarterEntity @entity {
+type Block @entity {
+  id: ID! # The block hash
+  height: Int!
+}
 
-  id: ID! #id is a required field
-
-  field1: Int!
-
-  field2: String #filed2 is an optional field
-
-  field3: BigInt
-
-  field4: Date
-
-  field5: Boolean
-
-
-
+type Transaction @entity {
+  id: ID!
+  blockHeight: Int!
+  sender: String!
 }

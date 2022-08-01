@@ -1,15 +1,18 @@
-import { StarterEntity } from "../types";
 import { AlgorandBlock, AlgorandTransaction } from "@subql/types-algorand";
+import { Block, Transaction } from "../types";
 
 export async function handleBlock(block: AlgorandBlock): Promise<void> {
-  const newEntity = new StarterEntity(block.round.toString());
-  newEntity.field1 = block.round;
-  newEntity.field2 = "block";
-  await newEntity.save();
+  const entity = Block.create({
+    id: block.genesisHash,
+    height: block.round,
+  });
+  await entity.save();
 }
-export async function handleTransaction(txn: AlgorandTransaction): Promise<void> {
-  const newEntity = new StarterEntity(txn.id);
-  newEntity.field1 = txn.roundTime;
-  newEntity.field2 = "txn";
-  await newEntity.save();
+export async function handleTransaction(tx: AlgorandTransaction): Promise<void> {
+  const entity = Transaction.create({
+    id: tx.id,
+    blockHeight: tx.confirmedRound,
+    sender: tx.sender,
+  });
+  await entity.save();
 }

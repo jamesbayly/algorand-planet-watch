@@ -2,5 +2,7 @@
 
 // Auto-generated , DO NOT EDIT
 
-export {StarterEntity} from "./StarterEntity"
+export {Block} from "./Block"
+
+export {Transaction} from "./Transaction"
 
