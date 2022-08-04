@@ -28,6 +28,6 @@
   },
   "dependencies": {
     "@subql/types-algorand": "latest",
-    "algosdk": "^1.18.1"
+    "algosdk": "^1.19.0"
   }
 }
