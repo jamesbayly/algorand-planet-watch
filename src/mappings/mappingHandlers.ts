@@ -2,17 +2,17 @@ import { AlgorandBlock, AlgorandTransaction } from "@subql/types-algorand";
 import { Block, Transaction } from "../types";
 
 export async function handleBlock(block: AlgorandBlock): Promise<void> {
-  const entity: Block = Block.create({
+  const blockEntity: Block = Block.create({
     id: block.genesisHash,
     height: block.round,
   });
-  await entity.save();
+  await blockEntity.save();
 }
 
 export async function handleTransaction(
   tx: AlgorandTransaction
 ): Promise<void> {
-  const entity: Transaction = Transaction.create({
+  const transactionEntity: Transaction = Transaction.create({
     id: tx.id,
     blockHeight: tx.confirmedRound,
     sender: tx.sender,
@@ -29,5 +29,5 @@ export async function handleTransaction(
         ? BigInt(tx.paymentTransaction.amount)
         : undefined,
   });
-  await entity.save();
+  await transactionEntity.save();
 }
