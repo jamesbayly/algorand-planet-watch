@@ -1,10 +1,10 @@
 type Block @entity {
-  id: ID! # The block hash
+  id: ID! # A unique ID - The block hash
   height: Int!
 }
 
 type Transaction @entity {
-  id: ID!
+  id: ID! # A unique ID - The transaction ID
   blockHeight: Int!
   sender: String!
   amount: BigInt

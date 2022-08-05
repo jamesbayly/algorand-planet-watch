@@ -3,22 +3,23 @@ name: algorand-subql-starter
 version: 1.0.0
 runner:
   node:
-    name: '@subql/node-algorand'
-    version: '>=1.0.0'
+    name: "@subql/node-algorand"
+    version: ">=1.0.0"
   query:
-    name: '@subql/query'
-    version: '*'
+    name: "@subql/query"
+    version: "*"
 description: >-
   This project can be used as a starting point for developing your Algorand SubQuery project
-repository: 'https://github.com/subquery/algorand-subql-starter'
+repository: "https://github.com/subquery/algorand-subql-starter"
 schema:
   file: ./schema.graphql
 network:
-  chainId: 'SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI='
-  endpoint: 'https://algoindexer.testnet.algoexplorerapi.io'
+  chainId: "SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI="
+  # Must be a non-pruned archive node
+  endpoint: "https://algoindexer.testnet.algoexplorerapi.io"
 dataSources:
   - kind: algorand/Runtime
-    startBlock: 50000
+    startBlock: 50000 # Block to start indexing from (or the block when your contract was deployed)
     mapping:
       file: ./dist/index.js
       handlers:
@@ -27,6 +28,7 @@ dataSources:
         - handler: handleTransaction
           kind: algorand/TransactionHandler
           filter:
+            # payments from the Planet Watch Address
             txType: pay
             sender: "ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754"
             receiver: "ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754"
