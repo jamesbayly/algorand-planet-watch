@@ -1,5 +1,5 @@
 specVersion: 1.0.0
-name: algorand-subql-starter
+name: algorand-planet-watch
 version: 1.0.0
 runner:
   node:
@@ -9,8 +9,8 @@ runner:
     name: "@subql/query"
     version: "*"
 description: >-
-  This project can be used as a starting point for developing your Algorand SubQuery project
-repository: "https://github.com/subquery/algorand-subql-starter"
+  This project is a quick start guide for developing your Algorand SubQuery project, it indexes Algorand PlanetWatch token transfers
+repository: "https://github.com/jamesbayly/algorand-planet-watch"
 schema:
   file: ./schema.graphql
 network:
@@ -19,21 +19,13 @@ network:
   endpoint: "https://algoindexer.testnet.algoexplorerapi.io"
 dataSources:
   - kind: algorand/Runtime
-    startBlock: 50000 # Block to start indexing from (or the block when your contract was deployed)
+    startBlock: 8712119 # Block that planet was created on https://algoexplorer.io/tx/G66KX3TLKXUI547DFB4MNVY7SJVADOJKGP4SWMRC632GFHSFX5KQ
     mapping:
       file: ./dist/index.js
       handlers:
-        - handler: handleBlock
-          kind: algorand/BlockHandler
         - handler: handleTransaction
           kind: algorand/TransactionHandler
           filter:
-            # payments from the Planet Watch Address
-            txType: pay
+            # payments from the Planet Watch Address for the PLANET asset
+            assetId: 27165954
             sender: "ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754"
-            receiver: "ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754"
-        - handler: handleTransaction
-          kind: algorand/TransactionHandler
-          filter:
-            txType: acfg
-            applicationId: 1

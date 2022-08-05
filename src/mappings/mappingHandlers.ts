@@ -1,33 +1,18 @@
-import { AlgorandBlock, AlgorandTransaction } from "@subql/types-algorand";
-import { Block, Transaction } from "../types";
-
-export async function handleBlock(block: AlgorandBlock): Promise<void> {
-  const blockEntity: Block = Block.create({
-    id: block.genesisHash,
-    height: block.round,
-  });
-  await blockEntity.save();
-}
+import { AlgorandTransaction } from "@subql/types-algorand";
+import { Transaction } from "../types";
 
 export async function handleTransaction(
   tx: AlgorandTransaction
 ): Promise<void> {
+  logger.info(JSON.stringify(tx));
   const transactionEntity: Transaction = Transaction.create({
     id: tx.id,
     blockHeight: tx.confirmedRound,
     sender: tx.sender,
-    assetId:
-      tx.txType === "afrz"
-        ? BigInt(tx.assetFreezeTransaction.assetId)
-        : tx.txType === "acfg"
-        ? BigInt(tx.assetConfigTransaction.assetId)
-        : undefined,
-    amount:
-      tx.txType === "axfer"
-        ? BigInt(tx.assetTransferTransaction.amount)
-        : tx.txType === "pay"
-        ? BigInt(tx.paymentTransaction.amount)
-        : undefined,
   });
+  if (tx.paymentTransaction) {
+    (transactionEntity.reciever = tx.paymentTransaction.receiver),
+      (transactionEntity.amount = BigInt(tx.paymentTransaction.amount));
+  }
   await transactionEntity.save();
 }

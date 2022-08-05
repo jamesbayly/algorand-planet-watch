@@ -1,7 +1,7 @@
 {
-  "name": "algorand-subql-starter",
+  "name": "algorand-planet-watch",
   "version": "1.0.0",
-  "description": "This project can be used as a starting point for developing your Algorand SubQuery project",
+  "description": "This project is a quick start guide for developing your Algorand SubQuery project, it indexes Algorand PlanetWatch token transfers",
   "main": "dist/index.js",
   "scripts": {
     "build": "subql build",
@@ -10,8 +10,8 @@
     "codegen": "./node_modules/.bin/subql codegen",
     "start:docker": "docker-compose pull && docker-compose up"
   },
-  "homepage": "https://github.com/subquery/algorand-subql-starter",
-  "repository": "github:subquery/algorand-subql-starterr",
+  "homepage": "https://github.com/jamesbayly/algorand-planet-watch",
+  "repository": "github:jamesbayly/algorand-planet-watch",
   "files": [
     "dist",
     "schema.graphql",

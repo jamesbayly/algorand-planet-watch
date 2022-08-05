@@ -2,7 +2,5 @@
 
 // Auto-generated , DO NOT EDIT
 
-export {Block} from "./Block"
-
 export {Transaction} from "./Transaction"
 
