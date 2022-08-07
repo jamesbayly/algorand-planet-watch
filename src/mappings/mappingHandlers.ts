@@ -4,7 +4,7 @@ import { Transaction } from "../types";
 export async function handleTransaction(
   tx: AlgorandTransaction
 ): Promise<void> {
-  logger.info(JSON.stringify(tx));
+  // logger.info(JSON.stringify(tx));
   const transactionEntity: Transaction = Transaction.create({
     id: tx.id,
     blockHeight: tx.confirmedRound,
