@@ -2,6 +2,6 @@ type Transaction @entity {
   id: ID! # A unique ID - The transaction ID
   blockHeight: Int!
   sender: String!
-  reciever: String
+  receiver: String
   amount: BigInt
 }
