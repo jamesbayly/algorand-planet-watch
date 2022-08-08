@@ -11,7 +11,7 @@ export async function handleTransaction(
     sender: tx.sender,
   });
   if (tx.paymentTransaction) {
-    (transactionEntity.reciever = tx.paymentTransaction.receiver),
+    (transactionEntity.receiver = tx.paymentTransaction.receiver),
       (transactionEntity.amount = BigInt(tx.paymentTransaction.amount));
   }
   await transactionEntity.save();
