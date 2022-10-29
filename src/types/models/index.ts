@@ -4,3 +4,5 @@
 
 export {Transaction} from "./Transaction"
 
+export {Address} from "./Address"
+
