@@ -29,6 +29,6 @@ dataSources:
           kind: algorand/TransactionHandler
           filter:
             # payments from the Planet Watch Address for the PLANET asset
-            txType: axfer
+            txType: axfer # From the application TransactionType enum https://github.com/algorand/js-algorand-sdk/blob/5eb7b4ffe5fcb46812785fdc79e8a7edb78b084f/src/types/transactions/base.ts#L6
             assetId: 27165954
             sender: "ZW3ISEHZUHPO7OZGMKLKIIMKVICOUDRCERI454I3DB2BH52HGLSO67W754"
