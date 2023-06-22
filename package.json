@@ -5,10 +5,11 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "subql build",
+    "codegen": "subql codegen",
+    "start:docker": "docker-compose pull && docker-compose up --remove-orphans",
+    "dev": "subql codegen && subql build && docker-compose pull && docker-compose up --remove-orphans",
     "prepack": "rm -rf dist && npm run build",
-    "test": "jest",
-    "codegen": "./node_modules/.bin/subql codegen",
-    "start:docker": "docker-compose pull && docker-compose up"
+    "test": "jest"
   },
   "homepage": "https://github.com/jamesbayly/algorand-planet-watch",
   "repository": "github:jamesbayly/algorand-planet-watch",
@@ -28,6 +29,6 @@
   },
   "dependencies": {
     "@subql/types-algorand": "latest",
-    "algosdk": "^1.19.0"
+    "algosdk": "^2.2.0"
   }
 }

@@ -5,7 +5,7 @@ export async function handleTransaction(
   tx: AlgorandTransaction
 ): Promise<void> {
   // logger.info(JSON.stringify(tx));
-  if (tx.assetTransferTransaction) {
+  if (tx.assetTransferTransaction && tx.id && tx.confirmedRound) {
     // ensure that our address entities exist
     const senderAddress = await Address.get(tx.sender.toLowerCase());
     if (!senderAddress) {
